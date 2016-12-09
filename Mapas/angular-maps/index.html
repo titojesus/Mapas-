@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular Maps</title>
+      <!--conexion del AngularJs -->
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <!--importacion de estilos locales css -->
+      <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+     <!--importacion de la API de googleMaps js --> 
+      <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
+      <!--importacion de la AngularJS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<div ng-app="mapsApp" ng-controller="MapCtrl"> <!--enlace del modulo y el controlador -->
+  <div class="container">
+     <H3> Markers </H3>
+   <!-- <pre> {{cities | json}}</pre> -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="">Name</label><!--nombre de la ubicacion -->
+        <input type="text" class="form-control" ng-model="city" />
+        <label for="">Descripción</label><!--descripcion -->
+        <input type="text" class="form-control" ng-model="desc" />
+        <label for="">Latitud</label><!--coordenadas de latitud -->
+        <input type="text" class="form-control" ng-model="lat" />
+        <label for="">Longitud</label><!--coordenadas de longitud -->
+        <input type="text" class="form-control" ng-model="long" />
+        <br>
+        <button class="pull-right btn btn-success" ng-click="agregarDireccion()">Nueva Dirección</button><!-- boton de agregar nueva direccion -->
+      </div>
+    </div>
+    <br / >  
+      <!--contenedor del mapa -->
+    <div id="map"></div> 
+    <br / >
+    <p id="subtitulo">Exportar las direcciones</p>
+      <label for="filename">Titulo del archivo</label>
+       <!--Entrada de tipo texto que el ng-model almacena en el archivo final-->
+      <input type="text" placeholder="Ingresa un nombre.."  ng-model="nombre" />
+      <!--Boton donde se ejecuta el metodo saveJSON -->
+      <a class="pull-center btn btn-success" ng-click="saveJSON()" ng-href="{{ url }}">Guardar</a>
+
+  </div>
+    <br>
+</div>
+    <!--Se importar el archivo mediante un script-->
+        <script src="js/index.js"></script>
+
+    
+    
+  </body>
+</html>
